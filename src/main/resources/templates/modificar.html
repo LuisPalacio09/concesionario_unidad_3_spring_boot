@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>DATOS DEL CLIENTE</title>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                </head>
+                <body>
+                    <h1>Datos del Usuario</h1>
+                    <a th:href="@{/}">REGRESAR</a>
+                    <br/>
+                    <form th:action="@{/guardar}" method="POST" th:object="${cliente}">
+                        <br/>
+                        <label for="id" th:text="#{cliente.id}">ID</label>
+                        <input type="text" name="id" th:field="*{id}" required />
+                        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">El ID es requerido</span>
+                        <br/>
+                        <label for="Nombre" th:text="#{cliente.Nombre}">NOMBRE</label>
+                        <input type="text" name="Nombre" th:field="*{Nombre}" />
+                        <span th:if="${#fields.hasErrors('Nombre')}" th:errors="*{Nombre}">El Nombre es requerido</span>
+                        <br/>
+                        <label for="Dni" th:text="#{cliente.Dni}">DNI</label>
+                        <input type="text" name="Dni" th:field="*{Dni}" required />
+                        <span th:if="${#fields.hasErrors('Dni')}" th:errors="*{Dni}">El Dni es requerido</span>
+                        <br/>
+                        <label for="Direccion" th:text="#{cliente.Direccion}">DIRECCION</label>
+                        <input type="text" name="Direccion" th:field="*{Direccion}" />
+                        <span th:if="${#fields.hasErrors('Direccion')}" th:errors="*{Direccion}">La Direccion es requerida</span>
+                        <br/>
+                        <label for="Telefono" th:text="#{cliente.Telefono}">TELEFONO</label>
+                        <input type="text" name="Telefono" th:field="*{Telefono}" />
+                        <span th:if="${#fields.hasErrors('Telefono')}" th:errors="*{Telefono}">El Telefono es requerido</span>
+                        <br/>
+                        <input type="reset" th:value="#{accion.reiniciar}"/> &nbsp; &nbsp; &nbsp;
+                        <input type="submit" name="guardar" th:value="#{accion.agregar}"/>
+                        <br/>
+                    </form>
+                </body>
+                </html>
+
+
+
+
+
